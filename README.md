@@ -9,7 +9,7 @@
 <br>
 
 
-## 2. Data - 파일 경로 (수정하기)
+## 2. Data - 파일 경로
 
 ```bash
 ├── README.md
@@ -18,36 +18,36 @@
 │   ├── label_dataset
 │   ├── test_wav
 │   ├── test_label
-│   ├──
-│   ├──
-│   ├──
-│   └──
+│   ├── testscript
+│   ├── vocab
+│   ├── pre_processed_test_wav
+│   └── result
 │
-├── Kospeech
-├── bin 
-│   ├── tools.py		
+├── bin 		
 │   ├── eval.py
 │   ├── inference.py
 │   ├── inference_wer.py
 │   ├── main.py
 │   ├── prediction.py
+│   ├── tools.py
 │   └── kospeech
 │       ├── utils.py
 │       ├── model_builder.py
 │       ├── metrics.py
-│				├── data
-│						├── ..
-│						├── ..
-│				├── models
-│						├── ..
+│	├── data
+│		├── ..
+│		├── ..
+│	├── models
+│		├── ..
 │
 ├── configs
-		├── train.yaml
-		├── eval.yaml
-		├── 
-		├── 
+│	├── train.yaml
+│	├── eval.yaml
+│	├── ..
+│	├── ..
 │
-└── kospeech.ipynb
+│
+└── dlp.ipynb
 
 ```
 
@@ -74,22 +74,18 @@ Kospeech 모델은 DeepSpeech2 모델을 기반으로 구축되며, 주로 CTC (
         - 입력 시퀀스와 출력 시퀀스의 길이가 다를 때, 다양한 정렬 경로의 확률을 계산하여 정렬 문제를 해결합니다.
     - **블랭크 토큰 사용**:
         - 블랭크 토큰을 도입하여 출력 시퀀스에서 특정 위치가 비어있음을 나타내며, 가변 길이의 입력과 출력을 효과적으로 정렬합니다.
+* <img width="270" alt="image" src="https://github.com/koojahyeob/Deep_Learning_Project/assets/70992152/ffece009-914e-4f37-9077-2aa3a84b9178">
+- DeepSpeech2 모델구조
 
-![DeepSpeech2 모델 구조](readme%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%2071b76f15917a44af9fe0abac1ff2d441/Untitled.png)
-
-DeepSpeech2 모델 구조
 
 ## 4. Result
 
-- 데모영상 링크 : (링크넣기)
+- 데모영상
+https://github.com/koojahyeob/Deep_Learning_Project/assets/70992152/a1ec7b6e-1df1-471b-9e51-31c543420016
 
-![데모 화면](readme%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%2071b76f15917a44af9fe0abac1ff2d441/Untitled%201.png)
 
-데모 화면
 
-- 결과 (마지막 부분 채워넣기)
-
-![Untitled](readme%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%2071b76f15917a44af9fe0abac1ff2d441/Untitled%202.png)
+- 최종 결과
 
 ## 5. Contributors
 
