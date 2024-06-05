@@ -118,17 +118,7 @@ class Checkpoint(object):
             validset=resume_checkpoint['validset'],
         )
 
-    # 원래 것
-    # def get_latest_checkpoint(self):
-    #     """
-    #     returns the path to the last saved checkpoint's subdirectory.
-    #     Precondition: at least one checkpoint has been made (i.e., latest checkpoint subdirectory exists).
-    #     """
-    #     checkpoints_path = sorted(os.listdir(self.LOAD_PATH), reverse=True)[0]
-    #     sorted_listdir = sorted(os.listdir(os.path.join(self.LOAD_PATH, checkpoints_path)), reverse=True)
-    #     return os.path.join(checkpoints_path, sorted_listdir[0])
 
-    # 변경한 것
     def get_latest_checkpoint(self):
         """
         returns the path to the last saved checkpoint's subdirectory.

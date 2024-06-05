@@ -1,7 +1,7 @@
 # data
 dataset: 'kspon'
 dataset_path: ''
-transcripts_path: '../../../data/transcripts.txt'
+transcripts_path: '/content/drive/MyDrive/2024 3-1 DL/Team_project/KoreanSTT/transcripts.txt'
 output_unit: 'character'
 
 # trainer

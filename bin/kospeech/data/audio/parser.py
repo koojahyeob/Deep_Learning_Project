@@ -81,14 +81,14 @@ class SpectrogramParser(AudioParser):
             del_silence: bool = False,                # flag indication whether to delete silence or not
             input_reverse: bool = True,               # flag indication whether to reverse input or not
             normalize: bool = False,                  # flag indication whether to normalize spectrum or not
-            transform_method: str = 'mel',            # which feature to use [mel, fbank, spect, mfcc]
+            transform_method: str = 'fbank',            # which feature to use [mel, fbank, spect, mfcc]
             freq_mask_para: int = 12,                 # hyper Parameter for Freq Masking to limit freq masking length
             time_mask_num: int = 2,                   # how many time-masked area to make
             freq_mask_num: int = 2,                   # how many freq-masked area to make
             sos_id: int = 1,                          # start of sentence token`s identification
             eos_id: int = 2,                          # end of sentence token`s identification
             dataset_path: str = None,                 # noise dataset path
-            audio_extension: str = 'pcm',             # audio extension
+            audio_extension: str = 'wav',             # audio extension
     ) -> None:
         super(SpectrogramParser, self).__init__(dataset_path)
         self.del_silence = del_silence
@@ -125,7 +125,6 @@ class SpectrogramParser(AudioParser):
         
         if signal is None:
             logger.info("Audio is None : {0}".format(audio_path))
-            # print("PCM이냐?", self.audio_extension)
             return None
 
         feature = self.transforms(signal)

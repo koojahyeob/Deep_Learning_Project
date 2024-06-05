@@ -20,8 +20,8 @@ from kospeech.trainer.supervised_trainer import SupervisedTrainer
 @dataclass
 class TrainConfig:
     dataset: str = "kspon"
-    dataset_path: str = "???"
-    transcripts_path: str = "../../../data/transcripts.txt"
+    dataset_path: str = "/content/drive/MyDrive/2024 3-1 DL/Team_project/SampleData/audio_data"
+    transcripts_path: str = "/content/drive/MyDrive/2024 3-1 DL/Team_project/KoreanSTT/transcripts.txt"
     output_unit: str = "character"
 
     batch_size: int = 32

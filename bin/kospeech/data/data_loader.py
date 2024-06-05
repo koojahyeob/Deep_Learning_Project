@@ -49,7 +49,7 @@ class SpectrogramDataset(Dataset, SpectrogramParser):
             sos_id: int,                    # identification of start of sequence token
             eos_id: int,                    # identification of end of sequence token
             config: DictConfig,             # set of arguments
-            spec_augment: bool = False,     # flag indication whether to use spec-augmentation of not
+            spec_augment: bool = True,     # flag indication whether to use spec-augmentation of not
             dataset_path: str = None,       # path of dataset,
             audio_extension: str = 'wav'    # audio extension
     ) -> None:
@@ -104,7 +104,7 @@ class SpectrogramDataset(Dataset, SpectrogramParser):
 
     def shuffle(self):
         """ Shuffle dataset """
-        print("뚱", len(self.audio_paths), len(self.transcripts), len(self.augment_methods))
+        print("shuffle", len(self.audio_paths), len(self.transcripts), len(self.augment_methods))
         tmp = list(zip(self.audio_paths, self.transcripts, self.augment_methods))
         random.shuffle(tmp)
         self.audio_paths, self.transcripts, self.augment_methods = zip(*tmp)
@@ -268,8 +268,8 @@ def split_dataset(config: DictConfig, transcripts_path: str, vocab: Vocabulary):
 
     # train_num / num_worker 의 데이터에 대해, augmentation을 반복(num_woker만큼) + 나머지는 augmentation 하지 않고 shuffle만
     if config.train.dataset == 'kspon':
-        train_num = 280000
-        valid_num = 30000
+        train_num = 5532
+        valid_num = 1383
     elif config.train.dataset == 'libri':
         train_num = 281241
         valid_num = 5567

@@ -65,19 +65,19 @@ def main():
 
     audio_paths, transcripts = preprocess(opt.dataset_path, opt.preprocess_mode)
     print(opt.output_unit)
-    # if opt.output_unit == 'character':
-    generate_character_labels(transcripts, opt.vocab_dest)
-    generate_character_script(audio_paths, transcripts, opt.vocab_dest)
+    if opt.output_unit == 'character':
+        generate_character_labels(transcripts, opt.vocab_dest)
+        generate_character_script(audio_paths, transcripts, opt.vocab_dest)
 
-    # elif opt.output_unit == 'subword':
-    #     train_sentencepiece(transcripts, opt.savepath, opt.vocab_size)
-    #     sentence_to_subwords(audio_paths, transcripts, opt.savepath)
+    elif opt.output_unit == 'subword':
+        train_sentencepiece(transcripts, opt.savepath, opt.vocab_size)
+        sentence_to_subwords(audio_paths, transcripts, opt.savepath)
 
-    # elif opt.output_unit == 'grapheme':
-    #     sentence_to_grapheme(audio_paths, transcripts, opt.vocab_dest)
+    elif opt.output_unit == 'grapheme':
+        sentence_to_grapheme(audio_paths, transcripts, opt.vocab_dest)
 
-    # else:
-    #     raise ValueError("Unsupported preprocess method : {0}".format(opt.output_unit))
+    else:
+        raise ValueError("Unsupported preprocess method : {0}".format(opt.output_unit))
 
 
 if __name__ == '__main__':

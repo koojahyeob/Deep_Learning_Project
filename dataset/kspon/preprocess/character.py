@@ -39,14 +39,12 @@ def sentence_to_target(sentence, char2id):
     for ch in sentence:
         try:
             target += (str(char2id[ch]) + ' ')
-        # 사전에 없는 경우 넘어가라 -> 그냥 묵음처리나 마찬가지.
         except KeyError:
             continue
 
     return target[:-1]
 
 
-# 한글 전사에서 빈번하게 사용된 상위 2000개 단어 id 사전 만들기
 def generate_character_labels(transcripts, labels_dest):
     print('create_char_labels started..')
 
@@ -70,9 +68,9 @@ def generate_character_labels(transcripts, labels_dest):
         label['char'].append(ch)
         label['freq'].append(freq)
 
-    label['id'] = label['id'][:986]
-    label['char'] = label['char'][:986]
-    label['freq'] = label['freq'][:986]
+    label['id'] = label['id'][:405]
+    label['char'] = label['char'][:405]
+    label['freq'] = label['freq'][:405]
 
     label_df = pd.DataFrame(label)
     label_df.to_csv(os.path.join(labels_dest, "cssiri_character_vocabs.csv"), encoding="utf-8", index=False)

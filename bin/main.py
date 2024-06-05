@@ -81,7 +81,7 @@ def train(config: DictConfig) -> nn.DataParallel:
         torch.set_num_threads(config.train.num_threads)
   
     vocab = KsponSpeechVocabulary(
-        f'../../../data/vocab/cssiri_{config.train.output_unit}_vocabs.csv',
+        f'/content/drive/MyDrive/2024 3-1 DL/Team_project/SampleData/vocab/cssiri_character_vocabs.csv',
         output_unit=config.train.output_unit,
     )
             

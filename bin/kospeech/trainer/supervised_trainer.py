@@ -95,7 +95,7 @@ class SupervisedTrainer(object):
         if self.joint_ctc_attention:
             self.log_format = "step: {:4d}/{:4d}, loss: {:.6f}, ctc_loss: {:.6f}, ce_loss: {:.6f}, " \
                               "cer: {:.2f}, elapsed: {:.2f}s {:.2f}m {:.2f}h, lr: {:.6f}"
-        # 현재 학습 중인게 아래의 결과를 찍는다.
+
         else:
             self.log_format = "step: {:4d}/{:4d}, loss: {:.6f}, " \
                               "cer: {:.2f}, elapsed: {:.2f}s {:.2f}m {:.2f}h, lr: {:.6f}"
@@ -296,7 +296,7 @@ class SupervisedTrainer(object):
                             elapsed, epoch_elapsed, train_elapsed,
                             self.optimizer.get_lr(),
                         ))
-                    # 현재 찍히고 있는 것이 아래의 경우다.
+
                     else:
                         logger.info(self.log_format.format(
                             timestep, epoch_time_step, loss,

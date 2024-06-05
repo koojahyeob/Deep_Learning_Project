@@ -59,7 +59,7 @@ opt = parser.parse_args()
 # 음성 하나에 대해 inference 하는 경우
 feature = parse_audio(opt.audio_path, del_silence=True)
 input_length = torch.LongTensor([len(feature)])
-vocab = KsponSpeechVocabulary('data/vocab/cssiri_character_vocabs.csv')
+vocab = KsponSpeechVocabulary('/content/drive/MyDrive/2024 3-1 DL/Team_project/SampleData/vocab/cssiri_character_vocabs.csv')
 
 model = torch.load(opt.model_path, map_location=lambda storage, loc: storage).to(opt.device)
 if isinstance(model, nn.DataParallel):

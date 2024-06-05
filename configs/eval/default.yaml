@@ -1,7 +1,7 @@
 use_cuda: True
 dataset: 'kspon'
 dataset_path: ''
-transcripts_path: 'data/eval_transcript.txt'
+transcripts_path: /content/drive/MyDrive/2024 3-1 DL/Team_project/KoreanSTT/configs/eval/default.yaml
 model_path: ''
 output_unit: 'character'
 batch_size: 32
