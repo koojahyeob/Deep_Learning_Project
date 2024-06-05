@@ -1,19 +1,15 @@
-# 24-1 DL Team Project
+# 24-1 DL Team Project SilverSpeak
 
-### SilverSpeak
+**kospeech를 활용한 노인 발화 전사 모델 구축과 키오스크 음성 인식**
 
- kospeech를 활용한 노인 발화 전사 모델 구축과 키오스크 음성 인식
-
-### 1. Motivation for the project
-
----
+## 1. Motivation for the project
 - 현재 우리 사회는 고령화가 급속하게 진행되고 있으며 기술의 발전에 따른 서비스의 디지털 전환 동시에 이뤄지고 있다.
 - 이 때문에 많은 서비스들이 디지털화되면서 디지털 서비스 이용에 비교적 미숙한 고령층들이 어려움을 겪고 있다. 특히 키오스크 주문 방을 사용하는 매장이 늘어남에 따라 키오스크 작동이 미숙한 고령 인구가 카운로 향하는 모습은 주변에서 흔히 볼 수 있는 광경이다.
 - 따라서 본 프로젝트를 통해 노인 음성이 주가 되는 음성 인식 모델을 만들고 이를 키오스크에 적용하여 노인의 디지털 서비스 접근성을 높이고자 한다.
+<br>
 
-### 2. Data - 파일 경로 (수정하기)
 
----
+## 2. Data - 파일 경로 (수정하기)
 
 ```bash
 ├── README.md
@@ -55,8 +51,7 @@
 
 ```
 
-### 3. Model
----
+## 3. Model
 
 - DeepSpeech2 모델
 - 논문 링크 : [https://arxiv.org/abs/1512.02595](https://arxiv.org/abs/1512.02595)
@@ -84,9 +79,7 @@ Kospeech 모델은 DeepSpeech2 모델을 기반으로 구축되며, 주로 CTC (
 
 DeepSpeech2 모델 구조
 
-### 4. Result
-
----
+## 4. Result
 
 - 데모영상 링크 : (링크넣기)
 
@@ -98,8 +91,8 @@ DeepSpeech2 모델 구조
 
 ![Untitled](readme%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%2071b76f15917a44af9fe0abac1ff2d441/Untitled%202.png)
 
-### 5. Contributors
----
+## 5. Contributors
+
 - 구자협
     - 모델 구조 파악
     - 모델 학습
@@ -113,5 +106,5 @@ DeepSpeech2 모델 구조
     - 데이터 전처리
     - 모델 학습
 
-### 참고자료
+## 참고자료
 [https://github.com/sooftware/kospeech](https://github.com/sooftware/kospeech)
