@@ -1,96 +1,117 @@
-<div align="center">
+# 24-1 DL Team Project
 
-## 외국인 발화 한국어 음성 인식(Korean STT)
+### SilverSpeak
 
+ kospeech를 활용한 노인 발화 전사 모델 구축과 키오스크 음성 인식
 
-**kospeech를 활용한 한국어 음성인식 모델 개발**
-___
-</div>
+### 1. Motivation for the project
 
-해당 프로젝트는 End-to-End 한국어 음성 인식 오픈소스 툴킷인
-[kospeech](https://github.com/sooftware/kospeech)를 활용하여 진행했음을 밝힙니다.
-</br></br>
+---
+- 현재 우리 사회는 고령화가 급속하게 진행되고 있으며 기술의 발전에 따른 서비스의 디지털 전환 동시에 이뤄지고 있다.
+- 이 때문에 많은 서비스들이 디지털화되면서 디지털 서비스 이용에 비교적 미숙한 고령층들이 어려움을 겪고 있다. 특히 키오스크 주문 방을 사용하는 매장이 늘어남에 따라 키오스크 작동이 미숙한 고령 인구가 카운로 향하는 모습은 주변에서 흔히 볼 수 있는 광경이다.
+- 따라서 본 프로젝트를 통해 노인 음성이 주가 되는 음성 인식 모델을 만들고 이를 키오스크에 적용하여 노인의 디지털 서비스 접근성을 높이고자 한다.
 
-## - 프로젝트 개요
-- 외국인 발화 한국어 음성 데이터를 활용해 음성 인식 모델을 개발하고, 관련 사업화 아이디어를 제안하는 해커톤에 참여한 프로젝트의 일부입니다. </br>(대회 기간: 약 3주)
-- 위의 이유로, 데이터와 학습을 완료한 모델은 업로드 하지 않았습니다.
-- 총 30만 개의 학습 데이터를 활용하여 모델을 개발하고 1만 개의 테스트 데이터에 대해 CER, WER을 측정한 결과 'CER: 0.085, WER: 0.1919'의 결과를 얻었습니다.
-- 모델 성능 40%, 사업화 아이디어 60%의 평가에서 전체 29개 참여 팀 중 성능 부문 1위, 최종 평가 2위로 우수상을 수상했습니다.
-- 원본 오픈소스 코드에 에러/버그가 꽤 많았습니다. 해당 문제들을 하나씩 해결한 결과물이고, 그 과정에서 제가 사용한 데이터에 맞게 변형된 부분이 존재할 수 있습니다.
-- 자세한 오픈소스 활용 방법과 그 과정에서 발생한 문제들을 해결한 과정은 제 [블로그](https://mingchin.tistory.com/152)의 'kospeech(한국어 STT)' 카테고리를 참고하시기 바랍니다.
-- ./bin/inference_wer.py, ./bin/tools.py, ./bin/prediction.py는 kospeech에 존재하지 않으며, 필요에 의해 생성한 파일입니다.
-- 꼭 필요하지는 않지만 참고가 될만한 파일은 ./etc 안에 두었습니다.
-</br></br>
+### 2. Data - 파일 경로 (수정하기)
 
-## - 모듈 설치
-```
-!pip install -r requirements_cssiri.txt
-```
-- Python 3.8을 사용했습니다. 
-- kospeech가 제공하는 다양한 Acoustic Model 중, ds2(deepspeech2)를 사용했습니다.
-- Pytorch의 경우 1.10 버전이 사용되기 때문에 상위 버전을 사용하시는 경우 별도로 Pytorch를 재설치해주어야 합니다.
-- 전처리, 학습, 예측, 예측한 결과 저장에 필요한 모든 모듈을 포함시켰습니다.
-</br></br>
+---
 
-## - 전처리(Preprocess)
-```
-!python ./dataset/kspon/main.py --dataset_path $dataset_path --vocab_dest $vacab_dict_destination --output_unit 'character' --preprocess_mode 'phonetic' 
-```
-- output_unit과 preprocess_mode는 상황에 맞게 지정해주시면 됩니다.
-- ./dataset/kspon/preprocess/preprocess.py의 line 95~101을 확인해보시면, './'의 위치에 'train.txt' 파일을 필요로 합니다. 해당 파일은 '음성 파일 경로' + '\t' + '한국어 전사' 의 형식으로 작성되어야 합니다.
-- train.txt를 만들 때 사용한 코드는 ./etc/traintext 생성.ipynb 에 올려두었습니다.
-</br></br>
-
-## - 학습(Train)
-```
-!python ./bin/main.py model=ds2 train=ds2_train train.dataset_path=$dataset_path
-```
-- 학습과 관련된 configs(epoch, batch_size, spec_augment, 음성 파일 확장자 등)의 수정은 ./configs/audio/fbank.yaml 혹은 ./configs/train/ds2_train.yaml 에서 하실 수 있습니다. 
-</br>보다 자세한 설명은 [여기](https://mingchin.tistory.com/222)를 참고해주세요.
-</br></br>
-
-## - 예측(Inference)
-
-모든 command에 대한 deivice 옵션은 상황에 맞게 지정해주세요.
-
-1. 음성 파일 1개에 대한 예측
-* Command
+```bash
+├── README.md
+├── SampleData
+│   ├── audio_data
+│   ├── label_dataset
+│   ├── test_wav
+│   ├── test_label
+│   ├──
+│   ├──
+│   ├──
+│   └──
+│
+├── Kospeech
+├── bin 
+│   ├── tools.py		
+│   ├── eval.py
+│   ├── inference.py
+│   ├── inference_wer.py
+│   ├── main.py
+│   ├── prediction.py
+│   └── kospeech
+│       ├── utils.py
+│       ├── model_builder.py
+│       ├── metrics.py
+│				├── data
+│						├── ..
+│						├── ..
+│				├── models
+│						├── ..
+│
+├── configs
+		├── train.yaml
+		├── eval.yaml
+		├── 
+		├── 
+│
+└── kospeech.ipynb
 
 ```
-!python ./bin/inference.py --model_path $model_path --audio_path $audio_path --device "cpu"
-```
-* Output
 
-```
-음성 인식 결과
-```
-2. 음성 파일 1개에 대한 예측과 Cer, Wer 계산 결과 저장</br>
-(결과는 dst_path에 저장되며, 정답 label인 transcripts.txt파일을 transcript_path에 지정해주어야 합니다. 그 형식은 전처리에 필요한 train.txt 파일 혹은 학습에 사용되는 transcripts.txt와 동일해야 합니다.)
-* Command
-```
-python ./bin/inference_wer.py --model_path $model_path --audio_path $audio_path --transcript_path $transcript_path --dst_path $result_destination --device "cpu"
-```
-* Output
+### 3. Model
+---
 
-```
-음성 인식 결과
-```
-3. 음성 파일 여러 개(폴더)에 대한 예측과 그 결과 저장(.txt, .xlsx)
-* Command
-```
-python ./bin/prediction.py --model_path $model_path --audio_path $audio_path --submission 'True' --device "cpu"
-```
-'submission = True'로 지정하면 예측 결과를 .xlsx 파일로 저장할 수 있습니다. 다만 2개의 컬럼을 갖는 제출용 excel 파일을 필요로 합니다.
-* Output
+- DeepSpeech2 모델
+- 논문 링크 : [https://arxiv.org/abs/1512.02595](https://arxiv.org/abs/1512.02595)
 
-./outputs 폴더에 .txt와 .xlsx 파일 생성
-</br></br>
+Kospeech 모델은 DeepSpeech2 모델을 기반으로 구축되며, 주로 CTC (Connectionist Temporal Classification) 손실 함수를 사용한다.
 
-## - References
-- Wer, Cer 관련: 
-https://holianh.github.io/portfolio/Cach-tinh-WER/
-- kospeech:
-https://github.com/sooftware/kospeech
-# 2021-1-Classification_4classes
-# 2021-1-Classification_4classes
-# 2021-1-Classification_4classes
+- DeepSpeech2 모델 구조
+  - **입력 처리**:
+      - 입력 오디오를 스펙트로그램 형태로 변환하여 시간-주파수 도메인에서 오디오 신호를 표현합니다.
+  - **합성곱 층 (Convolutional Layers)**:
+      - 몇 개의 합성곱 층을 통해 입력 스펙트로그램의 저수준 특징을 추출하고, 차원을 줄여 더 높은 수준의 특징을 인코더로 전달합니다.
+  - **양방향 RNN 층 (Bidirectional RNN Layers)**:
+      - 여러 층의 양방향 RNN (주로 GRU 또는 LSTM)을 사용하여 시간 순서와 역순으로 데이터를 처리하여 앞뒤 문맥 정보를 모두 활용합니다.
+  - **완전 연결 층 (Fully Connected Layers)**:
+      - RNN 층의 출력을 하나 이상의 완전 연결 층으로 변환하여 최종 출력 차원을 줄입니다.
+  - **출력층 (Output Layer)**:
+      - 각 시간 단계에서의 문자 확률을 나타내는 소프트맥스 층으로 구성되며, 알파벳 문자와 블랭크 토큰이 포함됩니다.
+- CTC 손실 함수
+    - **정렬 문제 해결**:
+        - 입력 시퀀스와 출력 시퀀스의 길이가 다를 때, 다양한 정렬 경로의 확률을 계산하여 정렬 문제를 해결합니다.
+    - **블랭크 토큰 사용**:
+        - 블랭크 토큰을 도입하여 출력 시퀀스에서 특정 위치가 비어있음을 나타내며, 가변 길이의 입력과 출력을 효과적으로 정렬합니다.
+
+![DeepSpeech2 모델 구조](readme%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%2071b76f15917a44af9fe0abac1ff2d441/Untitled.png)
+
+DeepSpeech2 모델 구조
+
+### 4. Result
+
+---
+
+- 데모영상 링크 : (링크넣기)
+
+![데모 화면](readme%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%2071b76f15917a44af9fe0abac1ff2d441/Untitled%201.png)
+
+데모 화면
+
+- 결과 (마지막 부분 채워넣기)
+
+![Untitled](readme%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%2071b76f15917a44af9fe0abac1ff2d441/Untitled%202.png)
+
+### 5. Contributors
+---
+- 구자협
+    - 모델 구조 파악
+    - 모델 학습
+- 진민찬
+    - 모델 학습
+    - 발표
+- 남천우
+    - 데이터 전처리
+    - 데모 재현
+- 전시현
+    - 데이터 전처리
+    - 모델 학습
+
+### 참고자료
+[https://github.com/sooftware/kospeech](https://github.com/sooftware/kospeech)
