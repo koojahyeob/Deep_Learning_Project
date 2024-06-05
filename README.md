@@ -86,6 +86,7 @@ https://github.com/koojahyeob/Deep_Learning_Project/assets/70992152/a1ec7b6e-1df
 
 
 - 최종 결과
+<img width="609" alt="image" src="https://github.com/koojahyeob/Deep_Learning_Project/assets/70992152/c9af25c4-e90f-4742-9b7c-6ee657de736b">
 
 ## 5. Contributors
 
