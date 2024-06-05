@@ -75,7 +75,7 @@ Kospeech 모델은 DeepSpeech2 모델을 기반으로 구축되며, 주로 CTC (
     - **블랭크 토큰 사용**:
         - 블랭크 토큰을 도입하여 출력 시퀀스에서 특정 위치가 비어있음을 나타내며, 가변 길이의 입력과 출력을 효과적으로 정렬
 * <img width="270" alt="image" src="https://github.com/koojahyeob/Deep_Learning_Project/assets/70992152/ffece009-914e-4f37-9077-2aa3a84b9178">
-- DeepSpeech2 모델구조
+DeepSpeech2 모델구조
 
 
 ## 4. Result
