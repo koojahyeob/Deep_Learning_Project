@@ -9,47 +9,13 @@
 <br>
 
 
-## 2. Data - 파일 경로
+## 2. Dataset(SampleData)
+> [명령어 음성(노인남여)](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=94)
 
-```bash
-├── README.md
-├── SampleData
-│   ├── audio_data
-│   ├── label_dataset
-│   ├── test_wav
-│   ├── test_label
-│   ├── testscript
-│   ├── vocab
-│   ├── pre_processed_test_wav
-│   └── result
-│
-├── bin 		
-│   ├── eval.py
-│   ├── inference.py
-│   ├── inference_wer.py
-│   ├── main.py
-│   ├── prediction.py
-│   ├── tools.py
-│   └── kospeech
-│       ├── utils.py
-│       ├── model_builder.py
-│       ├── metrics.py
-│	├── data
-│		├── ..
-│		├── ..
-│	├── models
-│		├── ..
-│
-├── configs
-│	├── train.yaml
-│	├── eval.yaml
-│	├── ..
-│	├── ..
-│
-│
-└── deeplearningfinal.ipynb
+다양한 명령어 발화 중 키오스크에 관한 데이터 셋인 (키오스크_원천_1_명령어(노인))을 사용\
+해당 데이터 43669개 중 학습의 효율과 모델의 다양성 및 학습 비용을 고려하여 7719개를 랜덤 추출하여 사용\
+7719개의 데이터 중 6315개는 train data로, 702개는 validation data로, 나머지 702개는 test data로 활용하여 8:1:1의 비율 설정
 
-```
 
 ## 3. Model
 
@@ -90,6 +56,7 @@ Kospeech 모델은 DeepSpeech2 모델을 기반으로 구축되며, 주로 CTC (
 - 최종 결과
 <img width="609" alt="image" src="https://github.com/koojahyeob/Deep_Learning_Project/assets/70992152/c9af25c4-e90f-4742-9b7c-6ee657de736b">
 
+
 ## 5. Contributors
 - 구자협
     - 모델 구조 파악
@@ -104,5 +71,51 @@ Kospeech 모델은 DeepSpeech2 모델을 기반으로 구축되며, 주로 CTC (
     - 데이터 전처리
     - 모델 학습
 
-## 참고자료
-[https://github.com/sooftware/kospeech](https://github.com/sooftware/kospeech)
+
+## 6. Reference
+* kospeech : [https://github.com/sooftware/kospeech](https://github.com/sooftware/kospeech)
+* [치매 환자를 포함한 한국 노인 음성 데이터 딥러닝 기반 음성인식(2023 KJAS)](https://www.kjas.or.kr/journal/view.html?doi=10.5351/KJAS.2023.36.1.033)
+* [위상 보코더를 활용한 데이터 증강 및 노인 음성인식 성능 비교 (2022 대한전자공학회)](https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE11132580)
+
+
+## 7. File path
+
+```bash
+├── README.md
+├── SampleData
+│   ├── audio_data
+│   ├── label_dataset
+│   ├── test_wav
+│   ├── test_label
+│   ├── testscript
+│   ├── vocab
+│   ├── pre_processed_test_wav
+│   └── result
+│
+├── bin 		
+│   ├── eval.py
+│   ├── inference.py
+│   ├── inference_wer.py
+│   ├── main.py
+│   ├── prediction.py
+│   ├── tools.py
+│   └── kospeech
+│       ├── utils.py
+│       ├── model_builder.py
+│       ├── metrics.py
+│	├── data
+│		├── ..
+│		├── ..
+│	├── models
+│		├── ..
+│
+├── configs
+│	├── train.yaml
+│	├── eval.yaml
+│	├── ..
+│	├── ..
+│
+│
+└── deeplearningfinal.ipynb
+
+```
