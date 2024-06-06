@@ -47,7 +47,7 @@
 │	├── ..
 │
 │
-└── dlp.ipynb
+└── deeplearningfinal.ipynb
 
 ```
 
@@ -56,7 +56,7 @@
 - DeepSpeech2 모델
 - 논문 링크 : [https://arxiv.org/abs/1512.02595](https://arxiv.org/abs/1512.02595)
 
-Kospeech 모델은 DeepSpeech2 모델을 기반으로 구축되며, 주로 CTC (Connectionist Temporal Classification) 손실 함수를 사용한다.
+Kospeech 모델은 DeepSpeech2 모델을 기반으로 구축되며, 주로 CTC (Connectionist Temporal Classification) 손실 함수 사용
 
 - DeepSpeech2 모델 구조
   - **입력 처리**:
@@ -74,14 +74,12 @@ Kospeech 모델은 DeepSpeech2 모델을 기반으로 구축되며, 주로 CTC (
         - 입력 시퀀스와 출력 시퀀스의 길이가 다를 때, 다양한 정렬 경로의 확률을 계산하여 정렬 문제를 해결
     - **블랭크 토큰 사용**:
         - 블랭크 토큰을 도입하여 출력 시퀀스에서 특정 위치가 비어있음을 나타내며, 가변 길이의 입력과 출력을 효과적으로 정렬
-* <img width="270" alt="image" src="https://github.com/koojahyeob/Deep_Learning_Project/assets/70992152/ffece009-914e-4f37-9077-2aa3a84b9178">
+<img width="270" alt="image" src="https://github.com/koojahyeob/Deep_Learning_Project/assets/70992152/ffece009-914e-4f37-9077-2aa3a84b9178">
 DeepSpeech2 모델구조
 
 
 ## 4. Result
-
-- 데모영상
-https://github.com/koojahyeob/Deep_Learning_Project/assets/70992152/a1ec7b6e-1df1-471b-9e51-31c543420016
+*  [데모영상](https://github.com/koojahyeob/Deep_Learning_Project/assets/70992152/a1ec7b6e-1df1-471b-9e51-31c543420016)
 
 
 
