@@ -56,9 +56,10 @@
 - DeepSpeech2 모델
 - 논문 링크 : [https://arxiv.org/abs/1512.02595](https://arxiv.org/abs/1512.02595)
 
-Kospeech 모델은 DeepSpeech2 모델을 기반으로 구축되며, 주로 CTC (Connectionist Temporal Classification) 손실 함수 사용
+Kospeech 모델은 DeepSpeech2 모델을 기반으로 구축되며, 주로 CTC (Connectionist Temporal Classification) 손실 함수 사용 <br>
 
 - DeepSpeech2 모델 구조
+  
   - **입력 처리**:
       - 입력 오디오를 스펙트로그램 형태로 변환하여 시간-주파수 도메인에서 오디오 신호를 표현
   - **합성곱 층 (Convolutional Layers)**:
@@ -69,13 +70,16 @@ Kospeech 모델은 DeepSpeech2 모델을 기반으로 구축되며, 주로 CTC (
       - RNN 층의 출력을 하나 이상의 완전 연결 층으로 변환하여 최종 출력 차원을 줄임
   - **출력층 (Output Layer)**:
       - 각 시간 단계에서의 문자 확률을 나타내는 소프트맥스 층으로 구성되며, 알파벳 문자와 블랭크 토큰이 포함
+        
 - CTC 손실 함수
+
     - **정렬 문제 해결**:
         - 입력 시퀀스와 출력 시퀀스의 길이가 다를 때, 다양한 정렬 경로의 확률을 계산하여 정렬 문제를 해결
     - **블랭크 토큰 사용**:
         - 블랭크 토큰을 도입하여 출력 시퀀스에서 특정 위치가 비어있음을 나타내며, 가변 길이의 입력과 출력을 효과적으로 정렬
 <img width="270" alt="image" src="https://github.com/koojahyeob/Deep_Learning_Project/assets/70992152/ffece009-914e-4f37-9077-2aa3a84b9178">
-DeepSpeech2 모델구조
+
+**DeepSpeech2 모델구조**
 
 
 ## 4. Result
